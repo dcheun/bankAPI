@@ -1,0 +1,41 @@
+plugins {
+    id "java"
+    id "org.sonarqube" version "3.1.1"
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "dcheun_bankAPI"
+        property "sonar.organization", "dcheun"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'junit:junit:4.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    implementation group: 'io.javalin', name: 'javalin', version: '3.13.3'
+    compile "org.slf4j:slf4j-simple:1.7.30"
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.6'
+    // https://mvnrepository.com/artifact/org.mockito/mockito-core
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.7.7'
+    // https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter
+    testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.7.7'
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.18'
+}
+
+test {
+    useJUnitPlatform()
+}
+
